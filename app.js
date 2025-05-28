@@ -28,10 +28,10 @@ musica.loop = true;
 
 musicaFocoInput.addEventListener('change', () => {
     if(musica.paused){
-        
+        musica.play();
     }
     else{
-        musica.paused()
+        musica.pause();
     }
 })
 
@@ -84,7 +84,7 @@ function alterarIconePausarOuIniciar(playOrPAuse){
     }
 }
 const contagemRegressiva = () => {
-   // iniciar()
+   
    if(tempoDecorridoEmSegundos <=0 ){
        beep.play();
        alert('Tempo finalizado!');
@@ -99,8 +99,8 @@ startPauseBt.addEventListener('click', iniciar)
 
 function iniciar(){
     if(intervaloId){
-        zerar()
         pause.play();
+        zerar()
         return
     }
     alterarIconePausarOuIniciar('pausar');
@@ -110,7 +110,7 @@ function iniciar(){
 }
 function zerar(){
     clearInterval(intervaloId) //para o set interval
-    iniciarOuPausarBt.textContent = "Começar"
+    iniciarOuPausarBt.textContent = "Começar";
     alterarIconePausarOuIniciar('iniciar')
     intervaloId = null; //coloca o intervalo em nulo
 }
